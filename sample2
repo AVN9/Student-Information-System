@@ -1,0 +1,96 @@
+int searchreg(char a)
+ {
+  registration obj;
+  string s1;
+   int j=0,k=0;
+     char a1[4],a2[4];
+     string as1,as2;
+   time_t t;
+   t=time(NULL);
+   s1 = ctime(&t);
+   for(int i=20;i<25;i++)
+   a1[j++]=s1[i];
+    as1=a1;
+   fstream file2;
+  file2.open("record1.dat",ios::in);
+   while(file2.read((char *) & obj,sizeof(obj)))
+    {
+     if(obj.course==a)
+     {
+      for(int i=0;i<4;i++)
+       a2[i]=obj.stuid[i];
+       as2=a2;
+       if(as1.compare(as2)==0)       
+            k++;
+     }
+     
+   }
+file2.close();
+return (k);
+ } 
+
+
+
+
+
+
+ if(size()!=0)
+        {
+       int i=searchreg(course); 
+       string s1;
+       int j=0,k=0,l=0;
+       int a[4];
+       time_t t;
+       t=time(NULL);
+       s1 = ctime(&t);
+      for(int k=20;k<25;k++)
+      stuid[j++]=s1[k];
+         k=i+1;
+       while(k!=0)
+         {
+         a[l++]=k%10;
+         k=k/10;
+          }  
+          switch(course)
+              {
+              case '1':
+               stuid[j++]='b';stuid[j++]='.';stuid[j++]='t';stuid[j++]='e';stuid[j++]='c';stuid[j++]='h';
+                 break;   
+             case '2':
+               stuid[j++]='c';stuid[j++]='a'; 
+                break;
+             case '3':  
+              stuid[j++]='m';stuid[j++]='.';stuid[j++]='t';stuid[j++]='e';stuid[j++]='c';stuid[j++]='h';
+               break;
+             case '4':
+               stuid[j++]='p';stuid[j++]='.';stuid[j++]='h';stuid[j++]='d';
+                }  
+               for(k=l-1;k>=0;k--)
+                stuid[j++]=a[k]+48;
+        }
+      else
+      {
+      string s1;
+       int j=0,k=0,l=0;
+       int a[4];
+       time_t t;
+       t=time(NULL);
+       s1 = ctime(&t);
+      for(int k=20;k<25;k++)
+      stuid[j++]=s1[k];
+          switch(course)
+              {
+              case '1':
+               stuid[j++]='b';stuid[j++]='.';stuid[j++]='t';stuid[j++]='e';stuid[j++]='c';stuid[j++]='h';
+               break;
+             case '2':
+               stuid[j++]='c';stuid[j++]='a'; 
+              break;
+             case '3':  
+              stuid[j++]='m';stuid[j++]='.';stuid[j++]='t';stuid[j++]='e';stuid[j++]='c';stuid[j++]='h';
+              break;
+             case '4':
+               stuid[j++]='p';stuid[j++]='.';stuid[j++]='h';stuid[j++]='d';
+             }
+                stuid[j++]='0';stuid[j++]='1';
+            }
